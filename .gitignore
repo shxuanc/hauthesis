@@ -16,9 +16,12 @@
 *.synctex.gz
 *.toc
 *.xdv
+*.fdb_latexmk
+*.fls
 texput.log
 
 # 编辑器与本地工具
+.work/
 __pycache__/
 *.pyc
 
