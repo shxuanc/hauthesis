@@ -1,0 +1,57 @@
+% !TeX encoding = UTF-8
+% !TeX program  = xelatex
+
+\documentclass{hauthesis}
+
+\usepackage[backend=biber, style=gb7714-2015]{biblatex}
+\addbibresource{reference/reference.bib}
+
+% 封面字段（正式写论文时替换成自己的信息）
+\def\YourName{张三}
+\def\YourNumber{112300000000}
+\def\YourCollege{电子信息工程学院}
+\def\YourMajor{人工智能}
+\def\PaperTitleLa{基于多传感器融合的移动机器人}
+\def\PaperTitleLb{路径规划与避障算法研究}
+\def\SupervisorNameIn{某某某}
+\def\SupervisorTitleIn{教授}
+\def\SupervisorNameOut{/}
+\def\SupervisorTitleOut{/}
+\def\PaperYear{2027}
+\def\PaperMonth{5}
+\def\PaperTitleENa{Path Planning and Obstacle Avoidance
+for Mobile Robots}
+\def\PaperTitleENb{Based on Multi-Sensor Fusion}
+\def\Keywords{关键词，关键词，关键词，关键词}
+\def\KeywordsEN{keyword,\ keyword,\ keyword,\ keyword}
+
+\begin{document}
+
+\frontmatter % 前置部分（封面、摘要、目录等）
+
+\MakeCover
+
+\include{contents/abstract}
+
+\hautocstart
+\tableofcontents
+\hautocend
+
+\mainmatter % 主体部分（章节内容）
+
+\input{./contents/ch01}
+\input{./contents/ch02}
+\input{./contents/ch03}
+
+\include{contents/conclusion}
+
+\include{contents/acknowledgements}
+
+\include{contents/notes}
+
+% \nocite{*} % 显示所有参考文献
+\printbibliography
+
+\include{contents/appendix}
+
+\end{document}

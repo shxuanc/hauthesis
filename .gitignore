@@ -1,0 +1,28 @@
+# LaTeX 编译产物
+*.aux
+*.bcf
+*.bbl
+*.blg
+*.brf
+*.fdb_latexmk
+*.fls
+*.hd
+*.idx
+*.ilg
+*.ind
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.xdv
+texput.log
+
+# 编辑器与本地工具
+__pycache__/
+*.pyc
+
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini

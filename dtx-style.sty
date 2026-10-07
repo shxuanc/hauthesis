@@ -1,0 +1,178 @@
+%%
+%% This is file `dtx-style.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% hauthesis.dtx  (with options: `dtx-style')
+%% 
+%% This is a generated file.
+%% Copyright (C) 2026 by ShixuanCheng
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    https://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008 or later.
+%% 
+\ProvidesPackage{dtx-style}
+\RequirePackage{hypdoc}
+\RequirePackage{booktabs}
+\RequirePackage{longtable}
+\RequirePackage{graphicx}
+\RequirePackage{ctex}
+\RequirePackage{amsmath}
+\RequirePackage{unicode-math}
+\RequirePackage{fontspec}
+\RequirePackage{xcolor}
+\RequirePackage{etoolbox}
+\RequirePackage{listings}
+\RequirePackage{enumitem}
+\RequirePackage{metalogo}
+\RequirePackage{fancyhdr}
+\RequirePackage{hypdoc}
+\RequirePackage{metalogo}
+\RequirePackage{marginnote}
+\RequirePackage[
+top=2.5cm, bottom=2.5cm,
+left=4cm, right=2cm,
+headsep=3mm]{geometry}
+
+\hypersetup{
+pdflang     = zh-CN,
+pdftitle    = {HAUThesis：淮安大学学位论文模板},
+pdfauthor   = {程世轩},
+pdfsubject  = {淮安大学学位论文模板使用说明},
+pdfkeywords = {论文模板; 淮安大学; 使用说明},
+pdfdisplaydoctitle = true
+}%
+
+\setmainfont[
+Extension      = .otf,
+UprightFont    = *-regular,
+BoldFont       = *-bold,
+ItalicFont     = *-italic,
+BoldItalicFont = *-bolditalic,
+]{texgyretermes}
+\setsansfont[
+Extension      = .otf,
+UprightFont    = *-regular,
+BoldFont       = *-bold,
+ItalicFont     = *-italic,
+BoldItalicFont = *-bolditalic,
+]{texgyreheros}
+\setmonofont{Consolas}[
+Scale     = MatchLowercase,
+Ligatures = CommonOff,
+]
+
+\unimathsetup{
+math-style=ISO,
+bold-style=ISO,
+}
+
+\IfFontExistsTF{XITSMath-Regular.otf}{
+\setmathfont[
+Extension    = .otf,
+BoldFont     = XITSMath-Bold,
+StylisticSet = 8,
+]{XITSMath-Regular}
+\setmathfont[range={cal,bfcal},StylisticSet=1]{XITSMath-Regular.otf}
+}{
+\setmathfont[
+Extension    = .otf,
+BoldFont     = *bold,
+StylisticSet = 8,
+]{xits-math}
+\setmathfont[range={cal,bfcal},StylisticSet=1]{xits-math.otf}
+}
+
+\DeclareDocumentCommand{\option}{m}{\textsf{#1}}
+\DeclareDocumentCommand{\env}{m}{\texttt{#1}}
+\DeclareDocumentCommand{\pkg}{m}{\textsf{#1}}
+\DeclareDocumentCommand{\cls}{m}{\textsf{#1}}
+\DeclareRobustCommand\file{\nolinkurl}
+
+\definecolor{haucolor}{HTML}{005BA0}
+\colorlet{hau@macro}{blue!80!black}
+\colorlet{hau@env}{cyan!70!blue}
+\colorlet{hau@option}{green!45!black}
+\colorlet{hau@entry}{purple}
+\patchcmd{\PrintMacroName}{\MacroFont}{\strut\MacroFont\bfseries\color{hau@macro}}{}{}
+\patchcmd{\PrintDescribeMacro}{\MacroFont}{\strut\MacroFont\bfseries\sffamily\color{hau@macro}}{}{}
+\patchcmd{\PrintDescribeEnv}{\MacroFont}{\strut\MacroFont\bfseries\sffamily\color{hau@env}}{}{}
+\patchcmd{\PrintEnvName}{\MacroFont}{\strut\MacroFont\bfseries\color{hau@env}}{}{}
+\newcommand{\entry}[1]{%
+  \leavevmode{\strut}%
+  \marginpar{\raggedleft\bfseries\sffamily\color{hau@entry}\vspace*{-0.5\baselineskip}#1}%
+\index{#1@\string#1}%
+}
+
+\lstdefinestyle{lstStyleBase}{%
+ basicstyle=\small\ttfamily,
+ aboveskip=\medskipamount,
+ belowskip=\medskipamount,
+ lineskip=0pt,
+ boxpos=c,
+ showlines=false,
+ extendedchars=true,
+ upquote=true,
+ tabsize=2,
+ showtabs=false,
+ showspaces=false,
+ showstringspaces=false,
+ numbers=none,
+ linewidth=\linewidth,
+ xleftmargin=4pt,
+ xrightmargin=0pt,
+ resetmargins=false,
+ breaklines=true,
+ breakatwhitespace=false,
+ breakindent=0pt,
+ breakautoindent=true,
+ %columns=flexible,
+ %basewidth=0.6em,
+ keepspaces=true,
+ gobble=4,
+ framesep=3pt,
+ rulesep=1pt,
+ framerule=1pt,
+ backgroundcolor=\color{gray!5},
+ stringstyle=\color{green!40!black!100},
+ keywordstyle=\bfseries\color{blue!50!black},
+ commentstyle=\slshape\color{black!60}}
+
+\lstdefinestyle{lstStyleShell}{%
+ style=lstStyleBase,
+ frame=l,
+ rulecolor=\color{purple},
+ language=bash}
+
+\lstdefinestyle{lstStyleLaTeX}{%
+ style=lstStyleBase,
+ frame=single,
+ frameround=tttt,
+ rulecolor=\color{cyan!70!blue},
+ language=[LaTeX]TeX}
+
+\lstnewenvironment{latex}{\lstset{style=lstStyleLaTeX}}{}
+\lstnewenvironment{shell}{\lstset{style=lstStyleShell}}{}
+
+\setlist{nosep}%去掉列表条目间及列表前后的垂直间距
+
+\g@addto@macro\UrlBreaks{%
+\do0\do1\do2\do3\do4\do5\do6\do7\do8\do9%
+\do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M
+\do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X\do\Y\do\Z
+\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m
+\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z
+}
+\Urlmuskip=0mu plus 0.1mu
+
+\DeclareDocumentCommand{\githubuser}{m}{\href{https://github.com/#1}{@#1}}
+\def\hauthesis{\textsc{Hau}\-\textsc{Thesis}}
+\endinput
+%%
+%% End of file `dtx-style.sty'.

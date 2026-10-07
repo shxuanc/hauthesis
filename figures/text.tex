@@ -1,0 +1,166 @@
+\documentclass{article}
+
+\usepackage[
+paperwidth=204.8mm,
+paperheight=44.0mm,
+left=0mm,
+right=0mm,
+top=0mm,
+bottom=0mm
+]{geometry}
+\usepackage{tikz}
+\usepackage[UTF8]{ctex}
+\pagestyle{empty}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+\begin{document}
+	
+	\vspace*{-\topskip}
+	
+	\begin{tikzpicture}[
+		x=0.1mm,
+		y=-0.1mm,
+		line cap=butt,
+		line join=miter
+		]
+		
+		\def\LineWidth{0.55pt}
+		\def\DashWidth{0.55pt}
+		
+		\tikzset{
+			dimensionboth/.style={
+				line width=0.65pt,
+				<->,
+				>=latex
+			}
+		}
+		
+		\begin{scope}[
+			yshift=-6.95mm
+			]
+			
+			\draw[
+			line width=\DashWidth,
+			dashed,
+			dash pattern=on 4pt off 4pt
+			]
+			(85,76) -- (185,76);
+			
+			\draw[
+			line width=\LineWidth
+			]
+			(185,76) -- (1863,76);
+			
+			\draw[
+			line width=\LineWidth
+			]
+			(185,157) -- (1863,157);
+			
+			\draw[
+			line width=\DashWidth,
+			dashed,
+			dash pattern=on 4pt off 4pt
+			]
+			(1863,157) -- (1963,157);
+			
+			\draw[
+			line width=\LineWidth
+			]
+			(185,198) -- (1863,198);
+			
+			\draw[
+			line width=\LineWidth
+			]
+			(185,309) -- (1863,309);
+			
+			\draw[
+			line width=\LineWidth
+			]
+			(185,351) -- (1863,351);
+			
+			\draw[
+			line width=\DashWidth,
+			dashed,
+			dash pattern=on 4pt off 4pt
+			]
+			(1863,351) -- (1963,351);
+			
+			\draw[
+			line width=\LineWidth
+			]
+			(185,503) -- (1863,503);
+			
+			\draw[
+			line width=\DashWidth,
+			dashed,
+			dash pattern=on 4pt off 4pt
+			]
+			(85,503) -- (185,503);
+			
+			\draw[dimensionboth]
+			(150,76) -- (150,503);
+			
+			\node[
+			font=\fontsize{15pt}{21pt}\selectfont,
+			align=center,
+			anchor=center
+			]
+			at (75,289)
+			{实际\\占用\\高度};
+			
+			\draw[dimensionboth]
+			(617,76) -- (617,157);
+			
+			\node[
+			font=\fontsize{16pt}{19pt}\selectfont,
+			anchor=west
+			]
+			at (638,117)
+			{段前};
+			
+			\draw[dimensionboth]
+			(617,351) -- (617,503);
+			
+			\node[
+			font=\fontsize{16pt}{19pt}\selectfont,
+			anchor=west
+			]
+			at (638,427)
+			{段后};
+			
+			\node[
+			font=\rmfamily\fontsize{46pt}{46pt}\selectfont,
+			anchor=north,
+			inner sep=0pt
+			]
+			at (1024,198)
+			{TEXT};
+			
+			\draw[dimensionboth]
+			(1490,198) -- (1490,309);
+			
+			\node[
+			font=\fontsize{15pt}{19pt}\selectfont,
+			anchor=west
+			]
+			at (1520,253)
+			{文本实际高度};
+			
+			\draw[dimensionboth]
+			(1898,157) -- (1898,351);
+			
+			\node[
+			font=\fontsize{15pt}{21pt}\selectfont,
+			align=center,
+			anchor=center
+			]
+			at (1973,254)
+			{多倍\\行距};
+			
+		\end{scope}
+		
+	\end{tikzpicture}
+	
+\end{document}

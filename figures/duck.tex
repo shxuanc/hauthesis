@@ -1,0 +1,110 @@
+% !TEX program = xelatex
+\documentclass{article}
+
+\usepackage[
+paperwidth=16.18cm,
+paperheight=10cm,
+margin=0cm
+]{geometry}
+
+\usepackage{ctex}
+\usepackage{fontspec}
+
+\usepackage{tikz}
+\usetikzlibrary{ducks}
+\usetikzlibrary{calc}
+\usepackage{tikzducks}
+\usepackage{xcolor}
+\pagestyle{empty}
+
+\pagecolor{gray!55}
+
+
+\begin{document}
+	
+	\begin{tikzpicture}[
+		remember picture,
+		overlay
+		]
+		
+		\draw[
+		gray!80,
+		line width=1pt
+		]
+		(current page.south west)
+		rectangle
+		(current page.north east);
+		
+		\draw[
+		gray!80,
+		line width=1pt
+		]
+		(current page.west)
+		--
+		(current page.east);
+		
+		\draw[
+		gray!80,
+		line width=1pt
+		]
+		(current page.south)
+		--
+		(current page.north);
+		
+		\draw[
+		gray!80,
+		line width=1pt
+		]
+		(current page.north west)
+		--
+		(current page.south east);
+		
+		\draw[
+		gray!80,
+		line width=1pt
+		]
+		(current page.south west)
+		--
+		(current page.north east);
+		
+	\end{tikzpicture}
+	
+	\begin{tikzpicture}[
+		remember picture,
+		overlay
+		]
+		
+		\coordinate (DuckCenter)
+		at ([xshift=-1.2cm]current page.center);
+		
+		\node[
+		anchor=center
+		]
+		at (DuckCenter)
+		{%
+			\begin{tikzpicture}[scale=3.5]
+				
+				\duck[
+				graduate=black,
+				cape=purple,
+				laughing,
+				squareglasses=black,
+				book=\scalebox{0.55}{
+					\shortstack{
+					\textbf{HAUThesis}\\
+					\vspace{1em}
+					\LaTeX\\
+					\textbf{\lishu\Large 明德尚学}\\
+					\textbf{\lishu\Large 自强不息}}},
+					speech={\lishu\Large\textbf{为中华之崛起而读书}},
+				bubblecolour=cyan!80!blue,
+				%bowtie=red,
+				%water=cyan!0!blue,
+				]
+				
+			\end{tikzpicture}%
+		};
+		
+	\end{tikzpicture}
+	
+\end{document}

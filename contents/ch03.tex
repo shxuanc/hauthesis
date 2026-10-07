@@ -1,0 +1,32 @@
+\chapter{补充说明}
+
+\section{梯度下降}
+
+梯度下降是一种一阶迭代优化方法：每步沿损失函数梯度的反方向调整参数，使损失
+逐步下降。算法~\ref{alg:gd} 给出其基本流程，每轮迭代先计算当前参数处的梯度，
+再按学习率 $\eta$ 成比例地更新参数，梯度项的逐分量推导见附录~\ref{app:gd}。
+
+学习率决定每步的跨度：取值过大时损失可能震荡甚至发散，过小时收敛缓慢。
+实践中通常在梯度项上引入动量，或改用自适应学习率的方法，以兼顾收敛速度
+与稳定性。
+
+\begin{algorithm}[htbp]
+  \caption{梯度下降}
+  \label{alg:gd}
+  \begin{algorithmic}[1]
+    \Require 训练集 $D = \{(x^{(i)}, y^{(i)})\}_{i=1}^{m}$，
+             学习率 $\eta$，迭代次数 $T$
+    \Ensure 参数 $\theta$
+    \State 随机初始化 $\theta$
+    \For{$t = 1$ \textbf{to} $T$}
+      \State 计算梯度
+             $\nabla J(\theta) = \frac{1}{m}\sum_{i=1}^{m}
+              \left( h(x^{(i)}) - y^{(i)} \right) x^{(i)}$
+      \State 更新参数 $\theta \gets \theta - \eta \nabla J(\theta)$
+      \If{$\lVert \nabla J(\theta) \rVert < \varepsilon$}
+        \State \textbf{break}
+      \EndIf
+    \EndFor
+    \State \Return $\theta$
+  \end{algorithmic}
+\end{algorithm}

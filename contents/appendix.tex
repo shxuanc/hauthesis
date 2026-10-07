@@ -1,0 +1,107 @@
+\appendix
+
+\chapter{补充推导}
+
+\section{梯度下降的推导}
+\label{app:gd}
+
+对均方误差损失
+\begin{equation}
+  J(\theta) = \frac{1}{2m}\sum_{i=1}^{m}\left(h(x^{(i)}) - y^{(i)}\right)^2
+  \label{eq:appendix-mse}
+\end{equation}
+求关于第 $j$ 个参数的偏导，可得
+\begin{equation}
+  \frac{\partial J(\theta)}{\partial \theta_j}
+  = \frac{1}{m} \sum_{i=1}^{m}
+    \left( h(x^{(i)}) - y^{(i)} \right) x_j^{(i)}
+  \label{eq:appendix-grad}
+\end{equation}
+式~\ref{eq:appendix-grad} 即梯度项的逐分量形式。
+
+\section{反向传播的链式法则}
+
+略。
+
+\subsection{三级子标题（条目）}
+
+略
+
+\chapter{补充数据}
+
+\section{实验参数}
+
+模型训练使用的主要参数见表~\ref{tab:appendix-params}。
+
+\begin{table}[htbp]
+  \centering
+  \caption{训练参数设置}
+  \label{tab:appendix-params}
+  \begin{tabular}{ccc}
+    \hline
+    编号 & 参数 & 数值 \\
+    \hline
+    1 & 学习率   & 0.01 \\
+    2 & 批大小   & 64   \\
+    3 & 迭代次数 & 1000 \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\section{补充结果}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.225\linewidth,page=3]{abc}
+  \caption{附图}
+  \label{fig:futu}
+\end{figure}
+
+\chapter{代码示例}
+
+\section{代码块}
+
+\begin{lstlisting}[language=Python]
+for (int i = 0; i < n; i++) {
+  sum += a[i] * w[i];   # 累加加权和
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python,numbers=none]
+for (int i = 0; i < n; i++) {
+  sum += a[i] * w[i];   # 累加加权和
+}
+\end{lstlisting}
+
+\section{等宽字体及代码配色}
+
+\begin{lstlisting}[language=Python, style=codeMono]
+for (int i = 0; i < n; i++) {
+  sum += a[i] * w[i];   # 累加加权和
+}
+\end{lstlisting}
+
+\hautocodestyle[vscode]
+
+\begin{lstlisting}[language=JavaScript, style=codeMono]
+const sig = x => 1 / (1 + Math.exp(-x));            // sigmoid 激活函数
+const pred = (X, w) => X.map(r => sig(r.reduce((s, v, i) => s + v * w[i], 0)));
+const loss = (X, y, w) => -y.reduce((s, v, i) => s + v * Math.log(pred(X, w)[i]), 0) / y.length;
+const X = [[1,0],[0,1],[1,1]], y = [1,0,1];
+let w = [0,0];
+for (let t = 0; t < 100; t++) {
+  w = w.map((v, j) => v - 0.1 * X.reduce((s, r, i) => s + (pred(X, w)[i] - y[i]) * r[j], 0) / y.length);
+}
+console.log("权重:", w);                             // 输出结果
+console.log("损失:", loss(X, y, w));
+\end{lstlisting}
+
+\section{引入代码文件}
+
+\hautocodestyle[print]
+
+\codeinputhl[language=python, numbers=none]{code/test.py}
+
+\hautocodestyle[classic]
+
+\codeinputhl[language=python, style=codeMono]{code/test.py}
